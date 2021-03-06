@@ -16,7 +16,7 @@
       <div class="jumbotron text-center">
         <h1>Mission to Mars</h1>
         <!-- Add a button to activate scraping script -->
-        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        <p><a class="btn btn-success btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
       </div>
 
       <!-- Add section for Mars News -->
@@ -34,24 +34,28 @@
 
       <!-- Section for Featured Image and Facts table -->
       <div class="row" id="mars-featured-image">
-        <div class="col-md-8">
-          <h2>Featured Mars Image</h2>
+        <div class="col-md-8">    
+          <h2 class="text-primary">Featured Mars Image</h2>
 
           <!-- if images is False/None/non-existent, then default to error message -->
           <img
             src="{{mars.featured_image | default('static/images/error.png', true) }}"
-            class="img-responsive"
+            class="img-responsive img-rounded"
             alt="Responsive image"
            />
         </div>
 
-        <div class="col-md-4">
+        <div class="col-lg-4 table-responsive">
           <!-- Mars Facts -->
-          <div class="row" id="mars-facts">
-            <h4>Mars Facts</h4>
-            {{ mars.facts | safe }}
+          <div class="row right" id="mars-facts">
+            <br><br><br>
+            <h4><strong class="text-primary">Mars Facts</strong></h4>
+            
+              {{ mars.facts | safe }}
+             
           </div>
         </div>
+
       </div>
 
       <!-- Section for Mars Hemispheres -->
@@ -66,7 +70,7 @@
             <li >
             <img 
               src="{{hemisphere.img_url | default('static/images/error.png', true)}}" 
-              class="img-responsive"
+              class="img-responsive img-rounded"
               alt="Responsive image"
             />
             <div class="caption">
